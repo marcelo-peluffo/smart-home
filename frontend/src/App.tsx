@@ -1,4 +1,4 @@
-import APIButton, { type API } from './components/APIButton';
+import GETButton,{ type API } from './components/GETButton';
 
 export default function App() {
   const api: API = {
@@ -8,7 +8,7 @@ export default function App() {
 
   return (
     <>
-      <APIButton APIData={api} label={'GET /'}></APIButton>
+      <GETButton APIData={api} label={'GET /'}></GETButton>
     </>
   );
 }

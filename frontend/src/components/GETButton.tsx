@@ -11,7 +11,7 @@ type APIButtonProps = {
 }
 
 
-export default function APIButton({ APIData, label }: APIButtonProps) {
+export default function GETButton({ APIData, label }: APIButtonProps) {
     const [buttonText, setButtonText] = useState(label)
 
     const callAPI = async () => {

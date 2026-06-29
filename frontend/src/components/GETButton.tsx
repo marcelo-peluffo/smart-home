@@ -8,11 +8,11 @@ export type API = {
 type APIButtonProps = {
     APIData: API
     label: string
+    setButtonText: (text: string) => void
 }
 
 
-export default function GETButton({ APIData, label }: APIButtonProps) {
-    const [buttonText, setButtonText] = useState(label)
+export default function GETButton({ APIData, label, setButtonText}: APIButtonProps) {
 
     const callAPI = async () => {
         try {
@@ -32,7 +32,7 @@ export default function GETButton({ APIData, label }: APIButtonProps) {
 
     return (
         <>
-            <button onClick={callAPI}>{buttonText}</button>
+            <button onClick={callAPI}>{label}</button>
         </>
     )
 }

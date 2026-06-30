@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 
 export default function DogEatenLabel() {
-    const defaultLabelText = 'Dog has not eaten'
+    const defaultLabelText = 'Click to get Rocky\'s eating status.'
     const [labelText, setLabelText] = useState(defaultLabelText)
 
     // doesnt work without use effect
@@ -10,9 +10,15 @@ export default function DogEatenLabel() {
         try {
             const response = await fetch('http://pi.local:3000/status/dog-eat')
             const result = await response.json()
-            const stringResult = await JSON.stringify(result)
+            const dogHasEaten = result.dogEat
 
-            setLabelText(stringResult)
+            if (dogHasEaten) {
+                setLabelText('Tag Scanned: Rocky has eaten!')
+            }
+            else {
+                setLabelText('Tag not scanned: Rocky hasn\'t eaten yet! Click to get status again.')
+            }
+
         } catch (e) {
             console.error(e)
             setLabelText('Failed to get dog eat status.')

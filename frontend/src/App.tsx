@@ -22,6 +22,7 @@ export default function App() {
     <>
       <GETButton APIData={api} label={buttonText} setButtonText={handleTextChange}></GETButton>
       <ClearButton onClear={handleClear}/>
+      <br></br>
       <DogEatenLabel />
     </>
   );

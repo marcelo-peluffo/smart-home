@@ -6,11 +6,7 @@ const port = 3000;
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send({some: 'json'});
-});
-
-app.post('/tags/garage', (req, res) => {
-    res.send('Garage Tag Received.');
+    res.send({'Peluffo\'s Smart Home': 'Welcome to the Smart Home API!'});
 });
 
 app.listen(port, () => {

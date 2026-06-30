@@ -14,15 +14,16 @@ app.get('/', (req, res) => {
 // when this endpoint is called, update backend state 
 app.post('/api/dog-eat', (req, res) => {
     hasDogEaten = true;
+    res.send({ok: true}) // necessary, also dont make json parts strings and - to keep JS compatible
 })
 
 app.get('/status/dog-eat', (req, res) => {
     if (hasDogEaten) {
-        res.send({'dog-eat': 'true'});
+        res.send({dogEat: true});
         hasDogEaten = false
     }
     else {
-        res.send({'dog-eat': 'false'})
+        res.send({dogEat: false})
     }
 });
 

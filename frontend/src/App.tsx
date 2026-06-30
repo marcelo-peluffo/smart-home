@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import ClearButton from './components/ClearButton';
 import GETButton,{ type API } from './components/GETButton';
+import DogEatenLabel from './components/DogEatenLabel';
 
 export default function App() {
 
@@ -21,6 +22,7 @@ export default function App() {
     <>
       <GETButton APIData={api} label={buttonText} setButtonText={handleTextChange}></GETButton>
       <ClearButton onClear={handleClear}/>
+      <DogEatenLabel />
     </>
   );
 }

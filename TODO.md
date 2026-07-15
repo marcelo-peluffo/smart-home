@@ -9,6 +9,15 @@ Planned work to get this project from a working prototype to something more soli
 - [ ] `docker-compose.yml` at the repo root wiring both services together, replacing `initialize.sh` as the way services are started (a multi-container app instead of two processes launched from one script).
 - [ ] Decide how `pi.local:3000` (hardcoded in the frontend) maps to the backend service name/port under Compose.
 
+## SQLite integration
+
+Persistence needed for `backend/` (currently everything is an in-memory variable that resets on restart — see `hasDogEaten` in `backend/main.js`).
+
+- [ ] Add SQLite as the storage layer for scan events/status (replaces the in-memory boolean).
+- [ ] **Open decision — where SQLite lives:** leaning toward embedding it directly in the Express backend (e.g. via `better-sqlite3`), not a separate container. SQLite is a file-based embedded database with no network server/protocol, so it doesn't containerize the way Postgres/MySQL would — under Docker Compose this would most likely just mean the backend container mounts a volume for the `.db` file, not an additional service. Flagging as undecided until confirmed.
+- [ ] Define the schema once the shape of "scan events" is settled (ties into the logging/timestamp work below).
+- [ ] If Docker integration lands first, make sure the SQLite file path is on a mounted volume so data survives container restarts/rebuilds.
+
 ## Testing framework
 
 - [ ] Pick and set up a test runner (backend currently has no test framework — `npm test` is a stub; frontend has none either).

@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Git conventions
+
+- Do not add a `Co-Authored-By: Claude` line (or any Claude co-author trailer) to commit messages in this repository.
+
 ## Project purpose
 
 This is a self-hosted smart home system built around NFC stickers as physical "endpoints." Each NFC tag is programmed to fire an HTTP request at the backend when scanned by a phone (e.g. scanning a tag mounted near the dog's food bowl POSTs to `/api/dog-eat`). The frontend is a dashboard, meant to be visited on the local network, that shows the current status derived from those scans (e.g. "has the dog eaten today, and when").

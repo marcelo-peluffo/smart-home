@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Git conventions
 
 - Do not add a `Co-Authored-By: Claude` line (or any Claude co-author trailer) to commit messages in this repository.
+- Commit to the local repo after finishing each significant, self-contained change (e.g. a feature, fix, or file addition/update that stands on its own) — don't wait to be asked each time. Use judgment: group a single logical change into one commit rather than committing after every individual file edit or mid-task intermediate state. Write a real, descriptive commit message (not a generic placeholder). This standing authorization covers local commits only — never push to a remote without being explicitly asked.
 
 ## Project purpose
 
